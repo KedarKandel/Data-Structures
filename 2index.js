@@ -12,7 +12,6 @@ function firstNonRepetitiveNum(arr) {
 
   for (let num of arr) {
     if (obj[num] === 1) {
-      
     }
   }
   return -1;
