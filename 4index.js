@@ -37,3 +37,5 @@ const root = new Node(5, two, twelve);
 const target = 19;
 const result = closestValue(root, target);
 console.log(result);//outputs 21
+
+

@@ -1,25 +1,40 @@
-//Given an array of numbers, write a JavaScript function to find the second largest number in the array.
 
-//brain storming
+//Given a binary search tree, write a JavaScript function to find the closest value to a given target value. For example, if the input binary search tree is:
 
-const data = [1, 3, 5, 7, 9, 3, 9, 8, 50, 27];
+//     5
+//    / \
+//   2   12
+//  / \  / \
+// 1  3 9  21
+// And the target value is 6, the function should return 5 as it is the closest value to 6 in the binary search tree.
 
-function secondLargestNum(data) {
-  let secondMax = 0;
-  let max = 0;
-  let obj = {};
-  for (let num of data) {
-    obj[num] = true;
+class Node {
+  constructor(value, left = null, right = null) {
+    this.value = value;
+    this.left = left;
+    this.right = right;
   }
-
-  for (let key in obj) {
-    if (parseInt(key) > secondMax) {
-      max = secondMax;
-      secondMax = key;
-    } else if (parseInt(key) > max) {
-      max = key;
-    }
-  }
-  return secondMax;
 }
-console.log(secondLargestNum(data));
+
+function closestValue(root, target) {
+  let closest = root.value;
+  while (root !== null) {
+    if (Math.abs(target - closest) > Math.abs(target - root.value)) {
+      closest = root.value;
+    }
+    root = target < root.value ? root.left : root.right;
+  }
+  return closest;
+}
+
+const one = new Node(1);
+const three = new Node(3);
+const two = new Node(2, one, three);
+const nine = new Node(9);
+const twentyOne = new Node(21);
+const twelve = new Node(12, nine, twentyOne);
+const root = new Node(5, two, twelve);
+
+const target = 19;
+const result = closestValue(root, target);
+console.log(result);//outputs 21
