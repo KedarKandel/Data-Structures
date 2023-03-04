@@ -2,6 +2,7 @@
 
 function firstNonRepetitiveNum(arr) {
   let obj = {};
+  let ans;
   for (let num of arr) {
     if (obj[num]) {
       obj[num]++;
@@ -10,11 +11,13 @@ function firstNonRepetitiveNum(arr) {
     }
   }
 
-  for (let num of arr) {
-    if (obj[num] === 1) {
+  for (let key in obj) {
+    if (obj[key] === 1) {
+      ans = key;
+      break;
     }
   }
-  return -1;
+  return ans;
 }
 
 const arr = [1, 2, 3, 1, 2, 4];
