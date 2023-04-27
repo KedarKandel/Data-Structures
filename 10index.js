@@ -7,17 +7,17 @@ function commonChr(string) {
   let mostCommonchr = "";
   let maxCount = 0;
 
-  for (let i = 0; i < string.length; i++) {
-    let currChr = string[i];
-    obj[currChr] = (obj[currChr] || 0) + 1;
+  for (let chr of string) {
+    
+    obj[chr] = (obj[chr] || 0) + 1;
 
-    if (obj[currChr] > maxCount) {
-      maxCount = obj[currChr];
-      mostCommonchr = currChr;
+    if (obj[chr] > maxCount) {
+      maxCount = obj[chr];
+      mostCommonchr = chr;
     }
   }
 
   return mostCommonchr;
 }
 
-console.log(commonChr("aldnjdsaa"));
+console.log(commonChr("aldnjdsadad"));
