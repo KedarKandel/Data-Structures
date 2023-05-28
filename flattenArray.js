@@ -1,17 +1,19 @@
-const nestedArray = [1, [2, [3, 4], 5], 6, [7]];
+const nestedArray = [1, [2, [3, [8], 4], 5], 6, [7]];
 
 function flattenArray(nestedArray) {
-  let flattenedArray = [];
-  function flattenHelper(nestedArray) {
+  const answer = [];
+
+  function helper(nestedArray) {
     for (let i = 0; i < nestedArray.length; i++) {
       if (Array.isArray(nestedArray[i])) {
-        flattenHelper(nestedArray[i]);
-      } else flattenedArray.push(nestedArray[i]);
+        helper(nestedArray[i])
+      }else answer.push(nestedArray[i])
     }
   }
-  flattenHelper(nestedArray)
-  return flattenedArray
+  helper(nestedArray)
+  return answer
 }
 
-console.log(flattenArray(nestedArray))
+console.log(flattenArray(nestedArray));
 // Output: [1, 2, 3, 4, 5, 6, 7]
+
