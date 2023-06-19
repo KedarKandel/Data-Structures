@@ -1,7 +1,7 @@
 // 1. Write a function that takes an array of integers as input, where all numbers in the array are consecutive except for one number that is missing. The function should return the missing number.
 
-// breakdown::
-// check if the index doesn't match with the value since they are consequtive     numbers
+
+// check if the index doesn't match with the value since they are consequtive  numbers
 
 function missingInt(arr) {
     if (!arr.length) return;
